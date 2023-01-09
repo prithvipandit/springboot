@@ -28,7 +28,7 @@ public class BookController {
 		return repo.findAll();
 	}
 	
-	@GetMapping(path="/book/{bid}",produces={"application/json"})
+	@GetMapping(path="/book/{bId}",produces={"application/json"})
 	public Optional<Book> getBook(@PathVariable("bId") Integer bId) {
 		return repo.findById(bId);
 	}
