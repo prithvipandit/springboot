@@ -36,15 +36,15 @@ pipeline {
         }
         stage('Docker ') {
             steps {
-                sh 'sudo docker image rm -f libraryimage'
+                sh 'docker image rm -f libraryimage'
                 echo 'previous docker image removed'
-                sh 'sudo docker rm -f librarycontainer'
+                sh 'docker rm -f librarycontainer'
                 echo 'previous docker container removed'
-                sh 'sudo docker build -t libraryimage .'
+                sh 'docker build -t libraryimage .'
                 echo 'docker image build..'
-                sh 'sudo docker container create -it --name librarycontainer -p 7080:7080 libraryimage'
+                sh 'docker container create -it --name librarycontainer -p 7080:7080 libraryimage'
                 echo 'docker container created'
-                sh 'sudo docker start librarycontainer'
+                sh 'docker start librarycontainer'
                 echo 'Application Deployed on Port 7080'
             }
         }
