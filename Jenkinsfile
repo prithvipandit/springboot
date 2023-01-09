@@ -40,7 +40,7 @@ pipeline {
                 echo 'previous docker image removed'
                 sh 'docker rm -f librarycontainer'
                 echo 'previous docker container removed'
-                sh 'docker build -t libraryimage LibraryManagement/.'
+                sh 'docker build -t libraryimage .'
                 echo 'docker image build..'
                 sh 'docker container create -it --name librarycontainer -p 7080:7080 libraryimage'
                 echo 'docker container created'
